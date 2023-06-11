@@ -43,11 +43,11 @@ interface LinkItemProps {
   link?: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome, link: "/sdfds" },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Home", icon: FiHome, link: "/home" },
+  { name: "Redações", icon: FiTrendingUp, link: '/redacao' },
+  { name: "Aulas", icon: FiCompass, link: '/aulas' },
+  { name: "Enviar Redação", icon: FiStar, link: 'enviarredacao' },
+  { name: "Seus Progressos", icon: FiSettings },
 ];
 
 export default function SidebarWithHeader({
@@ -238,7 +238,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <RouteLink to={'/'}>
+                <MenuItem>Sair</MenuItem>
+              </RouteLink>
             </MenuList>
           </Menu>
         </Flex>

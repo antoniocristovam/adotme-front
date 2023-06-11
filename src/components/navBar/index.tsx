@@ -21,6 +21,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import {Link as RouteLink} from 'react-router-dom'
 
 export default function NavBarHomePage() {
   const { isOpen, onToggle } = useDisclosure();
@@ -72,29 +73,29 @@ export default function NavBarHomePage() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"/pagina-de-login"}
-          >
-            Já sou Aluno
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button>
+          <RouteLink to={'/pagina-de-login'}>
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={400}
+            >
+              Já sou Aluno
+            </Button>
+          </RouteLink>
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"pink.400"}
+              href={"#"}
+              _hover={{
+                bg: "pink.300",
+              }}
+            >
+              Sign Up
+            </Button>
         </Stack>
       </Flex>
 
