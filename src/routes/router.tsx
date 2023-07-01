@@ -10,14 +10,14 @@ import { Flat } from "../presentation/app/modules/flat";
 import Register from "../components/authentication";
 import Register2 from "../components/authenticationNew";
 import Homepage from "../components/homePage";
-import { DefaultLayout } from "../components/defaultNavBar";
+import { DefaultNavBar } from "../components/defaultNavBar";
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
+      <Route path="/dashboard" element={<Dashboard />}></Route>
+      <Route path="/" element={<DefaultNavBar />}>
         <Route path="/" element={<Homepage />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/pagina-de-login" element={<LoginPage />}></Route>
         <Route path="/plano" element={<Flat />}></Route>
         <Route path="/register" element={<Register />}></Route>

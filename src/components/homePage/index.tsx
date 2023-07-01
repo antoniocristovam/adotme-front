@@ -33,15 +33,19 @@ export default function CallToActionWithAnnotation() {
             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
             lineHeight={"110%"}
           >
-            Make money from <br />
+            Mudando a vida de <br />
             <Text as={"span"} color={"green.400"}>
-              your audience
+              diversos animais
             </Text>
           </Heading>
+          <Text as={"span"} color={"green.400"}>
+            "Juntos, fazemos um elo de compaixão, onde cada adoção é um ato de
+            amor que muda vidas e enche os corações de alegria."
+          </Text>
           <Text color={"gray.500"}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Nós facilitamos a ligação entre pessoas que desejam adotar um animal
+            de estimação e seus futuros donos, assim auxiliamos diversos pets a
+            encontrar seu lar.
           </Text>
           <Stack
             direction={"column"}
@@ -64,7 +68,7 @@ export default function CallToActionWithAnnotation() {
             <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
               Learn more
             </Button>
-            <Box>
+            {/* <Box>
               <Icon
                 as={Arrow}
                 color={useColorModeValue("gray.800", "gray.300")}
@@ -83,7 +87,7 @@ export default function CallToActionWithAnnotation() {
               >
                 Starting at $15/mo
               </Text>
-            </Box>
+            </Box> */}
           </Stack>
         </Stack>
       </Container>

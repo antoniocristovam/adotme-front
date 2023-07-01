@@ -11,14 +11,15 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
-import NavBarHomePage from "../../../../components/navBar";
+// import NavBarHomePage from "../../../../components/navBar";
 import { Link as RouteLink } from "react-router-dom";
+import Logo from "../../../../assets/img/logo-certa.png";
 
 export default function LoginPage() {
   return (
     <>
-      <NavBarHomePage />;
       <Flex
         // minH={"100vh"}
         align={"center"}
@@ -27,6 +28,7 @@ export default function LoginPage() {
       >
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
+            <Image w={"28"} src={Logo}></Image>
             <Heading fontSize={"4xl"}>Seja bem Vindo</Heading>
             {/* <Text fontSize={"lg"} color={"gray.600"}>
               to enjoy all of our cool <Link color={"blue.400"}>features</Link>{" "}
