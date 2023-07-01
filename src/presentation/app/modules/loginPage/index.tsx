@@ -13,7 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import NavBarHomePage from "../../../../components/navBar";
-import {Link as RouteLink} from 'react-router-dom'
+import { Link as RouteLink } from "react-router-dom";
 
 export default function LoginPage() {
   return (
@@ -64,7 +64,7 @@ export default function LoginPage() {
                     bg: "blue.500",
                   }}
                 >
-                  <RouteLink to={'/dashboard'}>Entrar</RouteLink>
+                  <RouteLink to={"/dashboard"}>Entrar</RouteLink>
                 </Button>
               </Stack>
             </Stack>
