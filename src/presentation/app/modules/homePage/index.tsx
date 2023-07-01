@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 
-export function HomePage() {
+export function HomePagePrice() {
   function PriceWrapper({ children }: { children: ReactNode }) {
     return (
       <Box

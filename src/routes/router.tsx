@@ -9,11 +9,12 @@ import { Flat } from "../presentation/app/modules/flat";
 // import { Support } from "../presentation/app/modules/support";
 import Register from "../components/authentication";
 import Register2 from "../components/authenticationNew";
+import Homepage from "../components/homePage";
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/" element={<Homepage />}></Route>
       <Route path="/dashboard" element={<Dashboard />}></Route>
       <Route path="/pagina-de-login" element={<LoginPage />}></Route>
       <Route path="/plano" element={<Flat />}></Route>
