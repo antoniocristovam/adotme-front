@@ -35,8 +35,8 @@ export default function LoginPage() {
 
     onSubmit: (values) => {
       const valuesToSubmit = {
-        user: values.user,
-        password: values.password,
+        user: values.user || null,
+        password: values.password || null,
       };
 
       console.log(valuesToSubmit);

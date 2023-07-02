@@ -21,7 +21,7 @@ import {
 // Component
 import Background from "../../assets/img/pet-background.jpg";
 import Background2 from "../../assets/img/mobile-bg.png";
-import NavBarHomePage from "../navBar";
+// import NavBarHomePage from "../navBar";
 
 // Validation
 import * as Yup from "yup";
@@ -56,12 +56,12 @@ export default function Register() {
     enableReinitialize: true,
 
     initialValues: {
-      name: "",
-      email: "",
-      lastName: "",
-      username: "",
-      password: "",
-      repetPassword: "",
+      name: "asas",
+      email: "asasas",
+      lastName: "asasasa",
+      username: "sasas",
+      password: "asasasa",
+      repetPassword: "asasss",
     },
     validationSchema: Yup.object({
       name: Yup.string().nullable(),
@@ -73,19 +73,22 @@ export default function Register() {
     }),
     onSubmit: (values) => {
       const valuesToSubmit = {
-        name: values.name,
-        email: values.email,
-        lastName: values.lastName,
-        username: values.username,
-        password: values.password,
-        repetPassword: values.repetPassword,
+        name: values.name || null,
+        email: values.email || null,
+        lastName: values.lastName || null,
+        username: values.username || null,
+        password: values.password || null,
+        repetPassword: values.repetPassword || null,
       };
+
       console.log(valuesToSubmit);
 
       if (values) {
         console.log("Enviou");
         notifySuccess("Usuário autenticado com sucesso");
       } else {
+        console.log(valuesToSubmit);
+
         console.log("Não enviou");
         notifyError(
           "Ocorreu um erro ao entrar, verifique as informações e tente novamente"
@@ -96,146 +99,146 @@ export default function Register() {
 
   return (
     <>
-      <form
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          validation.handleSubmit();
-          return false;
-        }}
+      <Box
+        backgroundImage={{ sm: Background2, md: Background }}
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        objectFit={"cover"}
+        bgSize={"cover"}
+        minH={"100vh"}
+        w={"100%"}
       >
-        <Box
-          backgroundImage={{ sm: Background2, md: Background }}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          objectFit={"cover"}
-          bgSize={"cover"}
-          minH={"100vh"}
-          w={"100%"}
+        <Container
+          as={SimpleGrid}
+          maxW={"7xl"}
+          columns={{ base: 1, md: 2 }}
+          spacing={{ base: 10, lg: 32 }}
+          py={{ base: 10, sm: 20, lg: 32 }}
         >
-          <Container
-            as={SimpleGrid}
-            maxW={"7xl"}
-            columns={{ base: 1, md: 2 }}
-            spacing={{ base: 10, lg: 32 }}
-            py={{ base: 10, sm: 20, lg: 32 }}
-          >
-            <Stack spacing={{ base: 10, md: 20 }}>
-              <Heading
-                lineHeight={1.1}
-                fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
-              >
-                Adote seu pet{" "}
-                <Text
-                  as={"span"}
-                  bgGradient="linear(to-r, red.400,pink.400)"
-                  bgClip="text"
-                >
-                  &
-                </Text>{" "}
-                seja feliz (:
-              </Heading>
-              <Box display={"inline"} mt={"-10"}>
-                <Stack direction={"row"} spacing={4} align={"center"}>
-                  <AvatarGroup>
-                    {avatars.map((avatar) => (
-                      <Avatar
-                        key={avatar.name}
-                        name={avatar.name}
-                        src={avatar.url}
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        size={useBreakpointValue({ base: "md", md: "lg" })}
-                        position={"relative"}
-                        zIndex={2}
-                        _before={{
-                          content: '""',
-                          width: "full",
-                          height: "full",
-                          rounded: "full",
-                          transform: "scale(1.125)",
-                          bgGradient: "linear(to-bl, red.400,pink.400)",
-                          position: "absolute",
-                          zIndex: -1,
-                          top: 0,
-                          left: 0,
-                        }}
-                      />
-                    ))}
-                  </AvatarGroup>
-                  <Text
-                    fontFamily={"heading"}
-                    fontSize={{ base: "4xl", md: "6xl" }}
-                  >
-                    +
-                  </Text>
-                  <Flex
-                    align={"center"}
-                    justify={"center"}
-                    fontFamily={"heading"}
-                    fontSize={{ base: "sm", md: "lg" }}
-                    bg={"gray.800"}
-                    color={"white"}
-                    rounded={"full"}
-                    minWidth={useBreakpointValue({ base: "44px", md: "60px" })}
-                    minHeight={useBreakpointValue({ base: "44px", md: "60px" })}
-                    position={"relative"}
-                    _before={{
-                      content: '""',
-                      width: "full",
-                      height: "full",
-                      rounded: "full",
-                      transform: "scale(1.125)",
-                      bgGradient: "linear(to-bl, orange.400,yellow.400)",
-                      position: "absolute",
-                      zIndex: -1,
-                      top: 0,
-                      left: 0,
-                    }}
-                  >
-                    Você
-                  </Flex>
-                </Stack>
-              </Box>
-              <Heading
-                lineHeight={1.1}
-                fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
-              >
-                Venha fazer parte{" "}
-                <Text
-                  as={"span"}
-                  bgGradient="linear(to-r, red.400,pink.400)"
-                  bgClip="text"
-                >
-                  Dessa
-                </Text>{" "}
-                Comunidade.
-              </Heading>
-            </Stack>
-            <Stack
-              bg={"gray.50"}
-              rounded={"xl"}
-              p={{ base: 4, sm: 6, md: 8 }}
-              spacing={{ base: 8 }}
-              maxW={{ lg: "lg" }}
+          <Stack spacing={{ base: 10, md: 20 }}>
+            <Heading
+              lineHeight={1.1}
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
             >
-              <Stack spacing={4}>
-                <Heading
-                  color={"gray.800"}
-                  lineHeight={1.1}
-                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+              Adote seu pet{" "}
+              <Text
+                as={"span"}
+                bgGradient="linear(to-r, red.400,pink.400)"
+                bgClip="text"
+              >
+                &
+              </Text>{" "}
+              seja feliz (:
+            </Heading>
+            <Box display={"inline"} mt={"-10"}>
+              <Stack direction={"row"} spacing={4} align={"center"}>
+                <AvatarGroup>
+                  {avatars.map((avatar) => (
+                    <Avatar
+                      key={avatar.name}
+                      name={avatar.name}
+                      src={avatar.url}
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      size={useBreakpointValue({ base: "md", md: "lg" })}
+                      position={"relative"}
+                      zIndex={2}
+                      _before={{
+                        content: '""',
+                        width: "full",
+                        height: "full",
+                        rounded: "full",
+                        transform: "scale(1.125)",
+                        bgGradient: "linear(to-bl, red.400,pink.400)",
+                        position: "absolute",
+                        zIndex: -1,
+                        top: 0,
+                        left: 0,
+                      }}
+                    />
+                  ))}
+                </AvatarGroup>
+                <Text
+                  fontFamily={"heading"}
+                  fontSize={{ base: "4xl", md: "6xl" }}
                 >
-                  Seja bem vindo(a) 🐶🐈
-                  {/* <Text
+                  +
+                </Text>
+                <Flex
+                  align={"center"}
+                  justify={"center"}
+                  fontFamily={"heading"}
+                  fontSize={{ base: "sm", md: "lg" }}
+                  bg={"gray.800"}
+                  color={"white"}
+                  rounded={"full"}
+                  minWidth={useBreakpointValue({ base: "44px", md: "60px" })}
+                  minHeight={useBreakpointValue({ base: "44px", md: "60px" })}
+                  position={"relative"}
+                  _before={{
+                    content: '""',
+                    width: "full",
+                    height: "full",
+                    rounded: "full",
+                    transform: "scale(1.125)",
+                    bgGradient: "linear(to-bl, orange.400,yellow.400)",
+                    position: "absolute",
+                    zIndex: -1,
+                    top: 0,
+                    left: 0,
+                  }}
+                >
+                  Você
+                </Flex>
+              </Stack>
+            </Box>
+            <Heading
+              lineHeight={1.1}
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
+            >
+              Venha fazer parte{" "}
+              <Text
+                as={"span"}
+                bgGradient="linear(to-r, red.400,pink.400)"
+                bgClip="text"
+              >
+                Dessa
+              </Text>{" "}
+              Comunidade.
+            </Heading>
+          </Stack>
+          <Stack
+            bg={"gray.50"}
+            rounded={"xl"}
+            p={{ base: 4, sm: 6, md: 8 }}
+            spacing={{ base: 8 }}
+            maxW={{ lg: "lg" }}
+          >
+            <Stack spacing={4}>
+              <Heading
+                color={"gray.800"}
+                lineHeight={1.1}
+                fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+              >
+                Seja bem vindo(a) 🐶🐈
+                {/* <Text
                   as={"span"}
                   bgGradient="linear(to-r, red.400,pink.400)"
                   bgClip="text"
-                >
+                  >
                   !
                 </Text> */}
-                </Heading>
-                <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                  Cadastre-se e venha conhecer um mundo mais feliz.
-                </Text>
-              </Stack>
+              </Heading>
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                Cadastre-se e venha conhecer um mundo mais feliz.
+              </Text>
+            </Stack>
+            <form
+              onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                e.preventDefault();
+                validation.handleSubmit();
+                return false;
+              }}
+            >
               <Box as={"form"} mt={10}>
                 <Stack spacing={4}>
                   <HStack>
@@ -372,17 +375,16 @@ export default function Register() {
                   Cadastrar
                 </Button>
               </Box>
-              form
-            </Stack>
-          </Container>
-          <Blur
-            position={"absolute"}
-            top={-10}
-            left={-10}
-            style={{ filter: "blur(70px)" }}
-          />
-        </Box>
-      </form>
+            </form>
+          </Stack>
+        </Container>
+        <Blur
+          position={"absolute"}
+          top={-10}
+          left={-10}
+          style={{ filter: "blur(70px)" }}
+        />
+      </Box>
     </>
   );
 }
