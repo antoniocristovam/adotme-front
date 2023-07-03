@@ -21,6 +21,8 @@ import http from "../../../../http";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { notifyError, notifySuccess } from "../../../../components/notify";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Context/AuthContext";
 
 export default function LoginPage() {
   const validation = useFormik({
@@ -56,6 +58,11 @@ export default function LoginPage() {
       }
     },
   });
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { auth, setAuth } = useContext(AuthContext);
+
+  console.log("auth", auth);
 
   return (
     <>
@@ -117,6 +124,8 @@ export default function LoginPage() {
                     <Link color={"blue.400"}>Esqueceu sua senha ?</Link>
                   </Stack>
                   <Button
+                    // onClick={() => setAuth(true, "LOGADO")}
+                    onClick={() => setAuth(true)}
                     bg={"blue.400"}
                     type="submit"
                     color={"white"}
