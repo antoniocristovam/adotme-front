@@ -15,6 +15,8 @@ import {
 import Logo from "../../../../assets/img/logo-certa.png";
 import { Link as RouteLink } from "react-router-dom";
 
+import http from "../../../../http";
+
 // Validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -25,21 +27,23 @@ export default function LoginPage() {
     enableReinitialize: true,
 
     initialValues: {
-      user: "",
+      usernameOrEmail: "",
       password: "",
     },
     validationSchema: Yup.object({
-      user: Yup.string().nullable(),
+      usernameOrEmail: Yup.string().nullable(),
       password: Yup.string().nullable(),
     }),
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const valuesToSubmit = {
-        user: values.user || null,
+        usernameOrEmail: values.usernameOrEmail || null,
         password: values.password || null,
       };
 
-      console.log(valuesToSubmit);
+      const result = await http.post("/api/v1/auth/login", valuesToSubmit);
+
+      console.log(result.data);
 
       if (values) {
         console.log("Enviou");
@@ -86,10 +90,10 @@ export default function LoginPage() {
                 <FormControl id="text">
                   <FormLabel>Login</FormLabel>
                   <Input
-                    name="user"
+                    name="usernameOrEmail"
                     onChange={validation.handleChange}
                     onBlur={validation.handleBlur}
-                    value={validation.values.user}
+                    value={validation.values.usernameOrEmail}
                     type="text"
                   />
                 </FormControl>

@@ -27,58 +27,36 @@ import Background2 from "../../assets/img/mobile-bg.png";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { notifyError, notifySuccess } from "../notify";
-
-const avatars = [
-  {
-    name: "Ryan Florence",
-    url: "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png",
-  },
-  {
-    name: "Segun Adebayo",
-    url: "https://t1.ea.ltmcdn.com/pt/posts/4/2/8/pedigree_de_cachorro_o_que_e_e_como_fazer_1824_600.jpg",
-  },
-  {
-    name: "Kent Dodds",
-    url: "https://conteudo.imguol.com.br/c/entretenimento/54/2020/04/28/cachorro-pug-1588098472110_v2_1x1.jpg",
-  },
-  {
-    name: "Prosper Otemuyiwa",
-    url: "https://www.petz.com.br/blog/wp-content/uploads/2020/07/raca-de-cachorro-muito-popular-no-brasil-3-1280x720.jpg",
-  },
-  {
-    name: "Christian Nwamba",
-    url: "https://blog-static.petlove.com.br/wp-content/uploads/2022/06/cachorro-como-imaginam-Petlove.jpg",
-  },
-];
+import { avatars } from "./view";
 
 export default function Register() {
   const validation = useFormik({
     enableReinitialize: true,
 
     initialValues: {
-      name: "asas",
+      firstName: "asas",
       email: "asasas",
       lastName: "asasasa",
       username: "sasas",
       password: "asasasa",
-      repetPassword: "asasss",
+      confirmPassword: "asasss",
     },
     validationSchema: Yup.object({
-      name: Yup.string().nullable(),
+      firstName: Yup.string().nullable(),
       email: Yup.string().nullable(),
       lastName: Yup.string().nullable(),
       username: Yup.string().nullable(),
       password: Yup.string().nullable(),
-      repetPassword: Yup.string().nullable(),
+      confirmPassword: Yup.string().nullable(),
     }),
     onSubmit: (values) => {
       const valuesToSubmit = {
-        name: values.name || null,
+        firstName: values.firstName || null,
         email: values.email || null,
         lastName: values.lastName || null,
         username: values.username || null,
         password: values.password || null,
-        repetPassword: values.repetPassword || null,
+        confirmPassword: values.confirmPassword || null,
       };
 
       console.log(valuesToSubmit);
@@ -239,7 +217,7 @@ export default function Register() {
                 return false;
               }}
             >
-              <Box as={"form"} mt={10}>
+              <Box mt={10}>
                 <Stack spacing={4}>
                   <HStack>
                     <Box>
@@ -248,9 +226,9 @@ export default function Register() {
                         <Input
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.name}
+                          value={validation.values.firstName}
                           placeholder="Nome"
-                          name="name"
+                          name="firstName"
                           bg={"gray.100"}
                           border={0}
                           color={"gray.500"}
@@ -335,8 +313,8 @@ export default function Register() {
                     <Input
                       onChange={validation.handleChange}
                       onBlur={validation.handleBlur}
-                      value={validation.values.repetPassword}
-                      name="repetPassword"
+                      value={validation.values.confirmPassword}
+                      name="confirmPassword"
                       placeholder="Senha"
                       type="password"
                       bg={"gray.100"}
