@@ -26,7 +26,6 @@ import Background2 from "../../assets/img/mobile-bg.png";
 // Validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { notifyError, notifySuccess } from "../notify";
 import { avatars } from "./view";
 
 export default function Register() {
@@ -63,14 +62,10 @@ export default function Register() {
 
       if (values) {
         console.log("Enviou");
-        notifySuccess("Usuário autenticado com sucesso");
       } else {
         console.log(valuesToSubmit);
 
         console.log("Não enviou");
-        notifyError(
-          "Ocorreu um erro ao entrar, verifique as informações e tente novamente"
-        );
       }
     },
   });

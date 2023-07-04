@@ -1,22 +1,12 @@
 // Import
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 // Pag
-import { Dashboard } from "../presentation/app/modules/dashboard";
-import AuthProvider from "../Context/AuthContext";
-import LoginPage from "../presentation/app/modules/loginPage";
+import { AuthContext } from "../Context/AuthContext";
+import { useContext } from "react";
 
 export function PrivateRoutes() {
-  return (
-    <Routes>
-      <Route path="/dashboard" element={<Dashboard />}></Route>
-      {/* <Route path="/login" element={<LoginPage />} /> */}
+  const { auth } = useContext(AuthContext);
 
-      {/* <Route path="/" element={<DefaultNavBar />}>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/plano" element={<Flat />}></Route>
-      </Route> */}
-    </Routes>
-  );
+  return auth ? <Outlet /> : <Navigate to={"/login"} />;
 }

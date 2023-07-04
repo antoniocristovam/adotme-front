@@ -4,7 +4,6 @@ import Register from "../components/authentication";
 import { Flat } from "../presentation/app/modules/flat";
 import { DefaultNavBar } from "../components/defaultNavBar";
 import LoginPage from "../presentation/app/modules/loginPage";
-import AuthProvider from "../Context/AuthContext";
 
 export function PublicRoutes() {
   return (

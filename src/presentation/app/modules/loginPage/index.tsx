@@ -12,15 +12,14 @@ import {
   FormControl,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Logo from "../../../../assets/img/logo-certa.png";
 import { Link as RouteLink } from "react-router-dom";
+import Logo from "../../../../assets/img/logo-certa.png";
 
 import http from "../../../../http";
 
 // Validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { notifyError, notifySuccess } from "../../../../components/notify";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Context/AuthContext";
 
@@ -33,35 +32,29 @@ export default function LoginPage() {
       password: "",
     },
     validationSchema: Yup.object({
-      usernameOrEmail: Yup.string().nullable(),
       password: Yup.string().nullable(),
+      usernameOrEmail: Yup.string().nullable(),
     }),
 
     onSubmit: async (values) => {
       const valuesToSubmit = {
-        usernameOrEmail: values.usernameOrEmail || null,
         password: values.password || null,
+        usernameOrEmail: values.usernameOrEmail || null,
       };
 
       const result = await http.post("/api/v1/auth/login", valuesToSubmit);
 
-      console.log(result.data);
-
       if (values) {
         console.log("Enviou");
-        notifySuccess("Usuário autenticado com sucesso");
+        toggleAuth();
       } else {
         console.log("Não enviou");
-        notifyError(
-          "Ocorreu um erro ao entrar, verifique as informações e tente novamente"
-        );
       }
     },
   });
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { auth, setAuth } = useContext(AuthContext);
-  console.log("auth", auth);
+  const { auth, toggleAuth } = useContext(AuthContext);
 
   return (
     <>
@@ -81,10 +74,6 @@ export default function LoginPage() {
             <Stack align={"center"}>
               <Image w={"28"} src={Logo}></Image>
               <Heading fontSize={"4xl"}>Seja bem Vindo</Heading>
-              {/* <Text fontSize={"lg"} color={"gray.600"}>
-              to enjoy all of our cool <Link color={"blue.400"}>features</Link>{" "}
-              ✌️
-            </Text> */}
             </Stack>
             <Box
               rounded={"lg"}
@@ -123,8 +112,6 @@ export default function LoginPage() {
                     <Link color={"blue.400"}>Esqueceu sua senha ?</Link>
                   </Stack>
                   <Button
-                    // onClick={() => setAuth(true, "LOGADO")}
-                    onClick={() => setAuth(true)}
                     bg={"blue.400"}
                     type="submit"
                     color={"white"}
