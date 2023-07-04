@@ -8,15 +8,13 @@ import AuthProvider from "../Context/AuthContext";
 
 export function PublicRoutes() {
   return (
-    <AuthProvider>
-      <Routes>
-        <Route path="/" element={<DefaultNavBar />}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/plano" element={<Flat />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-      </Routes>
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={<DefaultNavBar />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/plano" element={<Flat />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+    </Routes>
   );
 }

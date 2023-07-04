@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import { PrivateRoutes } from "../routes/private.routes";
-import { PublicRoutes } from "../routes/public.routes";
-import { AuthContext } from "../Context/AuthContext";
+// import React, { useContext } from "react";
+// import { PrivateRoutes } from "../routes/private.routes";
+// import { PublicRoutes } from "../routes/public.routes";
+// import { AuthContext } from "../Context/AuthContext";
 
-export function App() {
-  const { auth, setAuth } = useContext(AuthContext);
-  console.log("Auth", auth);
+// export function App() {
+//   const { auth, setAuth } = useContext(AuthContext);
+//   console.log("Auasasassasth", auth);
 
-  return auth ? <PrivateRoutes /> : <PublicRoutes />;
-}
+//   return auth ? <PrivateRoutes /> : <PublicRoutes />;
+// }
 
-export default App;
+// // export default AppRouter;

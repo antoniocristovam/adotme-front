@@ -1,13 +1,13 @@
 import React, { createContext, useState } from "react";
 
+//Função que constroe o Provider e também permite Consumir os Dados Globais
 export const AuthContext = createContext();
 
-interface IProps {
-  children: any;
-}
-
-function AuthProvider({ children }: IProps) {
+//Componente Provider para passar os valores para os Childrens
+// passar aqui o login senha a poha toda
+function AuthProvider({ children }) {
   const [auth, setAuth] = useState(false);
+
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       {children}

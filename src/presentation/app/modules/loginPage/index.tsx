@@ -61,7 +61,6 @@ export default function LoginPage() {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { auth, setAuth } = useContext(AuthContext);
-
   console.log("auth", auth);
 
   return (
