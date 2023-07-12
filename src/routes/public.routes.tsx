@@ -9,8 +9,8 @@ export function PublicRoutes() {
   return (
     <Routes>
       <Route path="/" element={<DefaultNavBar />}>
+        <Route index element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<Homepage />} />
         <Route path="/plano" element={<Flat />} />
         <Route path="/register" element={<Register />} />
       </Route>

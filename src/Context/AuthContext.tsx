@@ -4,6 +4,7 @@ type IProps = {
   auth: boolean;
   toggleAuth: () => void;
 };
+
 //Função que constroe o Provider e também permite Consumir os Dados Globais
 export const AuthContext = createContext<IProps>({} as IProps);
 

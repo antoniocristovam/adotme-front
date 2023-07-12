@@ -37,6 +37,7 @@ import {
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { Link as RouteLink } from "react-router-dom";
+import { MdPets, MdPerson } from "react-icons/md";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -44,10 +45,10 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: "Home", icon: FiHome, link: "/home" },
-  { name: "Redações", icon: FiTrendingUp, link: '/redacao' },
-  { name: "Aulas", icon: FiCompass, link: '/aulas' },
-  { name: "Enviar Redação", icon: FiStar, link: 'enviarredacao' },
-  { name: "Seus Progressos", icon: FiSettings },
+  { name: "Perfil", icon: MdPerson, link: "/perfil" },
+  { name: "Pegistrar Pet", icon: MdPets, link: "/cadastrar" },
+  // { name: "Enviar Redação", icon: FiStar, link: "enviarredacao" },
+  // { name: "Seus Progressos", icon: FiSettings },
 ];
 
 export default function SidebarWithHeader({
@@ -238,7 +239,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <RouteLink to={'/'}>
+              <RouteLink to={"/"}>
                 <MenuItem>Sair</MenuItem>
               </RouteLink>
             </MenuList>
