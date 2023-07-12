@@ -5,16 +5,15 @@ import {
   Link,
   Text,
   Stack,
-  Popover,
+  Image,
   Button,
+  Popover,
   Collapse,
   IconButton,
   useDisclosure,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
-  Image,
 } from "@chakra-ui/react";
 import {
   CloseIcon,
@@ -25,6 +24,8 @@ import {
 
 import { Link as RouteLink } from "react-router-dom";
 import Logo from "../../assets/img/logo-certa.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function NavBarHomePage() {
   const { isOpen, onToggle } = useDisclosure();
@@ -80,7 +81,7 @@ export default function NavBarHomePage() {
           direction={"row"}
           spacing={6}
         >
-          <RouteLink to={"/pagina-de-login"}>
+          <RouteLink to={"/login"}>
             <Button as={"a"} fontSize={"sm"} fontWeight={400}>
               Entrar
             </Button>

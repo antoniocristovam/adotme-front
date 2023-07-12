@@ -1,18 +1,20 @@
-import { useState } from "react";
-import { Box, useColorModeValue, Button, useColorMode } from "@chakra-ui/react";
-import { SelectColorMode } from "./selectColorMode";
-import SidebarWithHeader from "./components/sideBar";
-import { BrowserRouter } from "react-router-dom";
-import { Router } from "./routes/router";
+import React, { useContext } from "react";
+import { PrivateRoutes } from "./routes/private.routes";
+import { PublicRoutes } from "./routes/public.routes";
+import { AuthContext } from "./Context/AuthContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Dashboard } from "./presentation/app/modules/dashboard";
 
 function App() {
-  const bg = useColorModeValue("red.500", "red.200");
-  const color = useColorModeValue("white", "gray.800");
-
   return (
     <>
       <BrowserRouter>
-        <Router />
+        <PublicRoutes />
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </>
   );
