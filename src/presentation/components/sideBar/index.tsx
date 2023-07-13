@@ -38,6 +38,7 @@ import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { Link as RouteLink } from "react-router-dom";
 import { MdPets, MdPerson } from "react-icons/md";
+import { ThemeToggle } from "../themeToggle/themeToggle";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -171,21 +172,13 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       height="20"
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
+      gap={"4"}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
-      <IconButton
-        display={{ base: "flex", md: "none" }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<FiMenu />}
-      />
+      <ThemeToggle />
 
       <Text
         display={{ base: "flex", md: "none" }}
@@ -197,12 +190,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       </Text>
 
       <HStack spacing={{ base: "0", md: "6" }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+        {/*<IconButton*/}
+        {/*  size="lg"*/}
+        {/*  variant="ghost"*/}
+        {/*  aria-label="open menu"*/}
+        {/*  icon={<FiBell />}*/}
+        {/*/>*/}
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton

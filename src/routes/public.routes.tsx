@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Homepage from "../components/homePage";
-import Register from "../components/authentication";
+import Homepage from "../presentation/components/homePage";
+import Register from "../presentation/components/authentication";
 import { Flat } from "../presentation/app/modules/flat";
-import { DefaultNavBar } from "../components/defaultNavBar";
+import { DefaultNavBar } from "../presentation/components/defaultNavBar";
 import LoginPage from "../presentation/app/modules/loginPage";
 
 export function PublicRoutes() {
