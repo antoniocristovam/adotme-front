@@ -3,10 +3,10 @@ import NavBarHomePage from "../navBar";
 import { Outlet } from "react-router-dom";
 import SidebarWithHeader from "../sideBar";
 
-export function DefaultNavBar() {
+export function DefaultNavBarAdmin() {
   return (
     <>
-      <NavBarHomePage />
+      <SidebarWithHeader children />
       <Outlet />
     </>
   );

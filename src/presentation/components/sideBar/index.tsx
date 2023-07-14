@@ -21,14 +21,11 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  Button,
   useColorMode,
 } from "@chakra-ui/react";
 import {
   FiHome,
   FiTrendingUp,
-  FiCompass,
-  FiStar,
   FiSettings,
   FiMenu,
   FiBell,
@@ -39,6 +36,8 @@ import { ReactText } from "react";
 import { Link as RouteLink } from "react-router-dom";
 import { MdPets, MdPerson } from "react-icons/md";
 import { ThemeToggle } from "../themeToggle/themeToggle";
+import ProfilePage from "../../app/modules/page/profile";
+import Logo from "../../../assets/img/logo-certa.png";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -47,7 +46,7 @@ interface LinkItemProps {
 const LinkItems: Array<LinkItemProps> = [
   { name: "Home", icon: FiHome, link: "/home" },
   { name: "Perfil", icon: MdPerson, link: "/perfil" },
-  { name: "Pegistrar Pet", icon: MdPets, link: "/cadastrar" },
+  { name: "Pegistrar Pet", icon: MdPets, link: "/registrar-pet" },
   // { name: "Enviar Redação", icon: FiStar, link: "enviarredacao" },
   // { name: "Seus Progressos", icon: FiSettings },
 ];
@@ -80,7 +79,8 @@ export default function SidebarWithHeader({
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+        {/* <ProfilePage /> */}
+        {/* aqui que renderiza */}
       </Box>
     </Box>
   );
@@ -103,8 +103,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+        <Text
+          display={"flex"}
+          fontSize="2xl"
+          fontFamily="monospace"
+          fontWeight="bold"
+        >
+          {/* Logo */}
+          <img width={"55px"} src={Logo} alt="" />
+          Adotme
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -163,7 +170,7 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -179,7 +186,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       {...rest}
     >
       <ThemeToggle />
-
       <Text
         display={{ base: "flex", md: "none" }}
         fontSize="2xl"
@@ -188,7 +194,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       >
         Logo
       </Text>
-
       <HStack spacing={{ base: "0", md: "6" }}>
         {/*<IconButton*/}
         {/*  size="lg"*/}

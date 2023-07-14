@@ -10,6 +10,7 @@ import {
   useColorModeValue,
   createIcon,
 } from "@chakra-ui/react";
+import { Rating } from "../../app/modules/cardsPet";
 
 export default function CallToActionWithAnnotation() {
   return (
