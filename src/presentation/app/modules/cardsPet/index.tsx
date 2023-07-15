@@ -9,6 +9,7 @@ import {
   chakra,
   Tooltip,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
@@ -101,18 +102,9 @@ function ProductAddToCart() {
             >
               {data.name}
             </Box>
-            <Tooltip
-              label="Add to cart"
-              bg="white"
-              placement={"top"}
-              color={"gray.800"}
-              fontSize={"1.2em"}
-            >
-              <chakra.a href={"#"} display={"flex"}>
-                {/* <Icon as={FiShoppingCart} h={7} w={7} alignSelf={"center"} /> */}
-              </chakra.a>
-            </Tooltip>
+            MASCULINO
           </Flex>
+          <Text>Cidade: Caruaru - PE</Text>
 
           <Flex justifyContent="space-between" alignContent="center">
             <Text mt={"5"}>
@@ -120,14 +112,8 @@ function ProductAddToCart() {
               vigoroso, relativamente dócil e leal, inteligente e com boa
               capacidade de aprendizagem.{" "}
             </Text>
-            {/* <Rating rating={data.rating} numReviews={data.numReviews} /> */}
-            {/* <Box fontSize="2xl" color={useColorModeValue("gray.800", "white")}>
-              <Box as="span" color={"gray.600"} fontSize="lg">
-                £
-              </Box>
-              {data.price.toFixed(2)}
-            </Box> */}
           </Flex>
+          <Button>Quero adotar</Button>
         </Box>
       </Box>
     </Flex>

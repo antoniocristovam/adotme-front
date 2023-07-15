@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import {
-  IconButton,
   Avatar,
   Box,
   CloseButton,
@@ -23,20 +22,13 @@ import {
   MenuList,
   useColorMode,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiHome, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { Link as RouteLink } from "react-router-dom";
 import { MdPets, MdPerson } from "react-icons/md";
 import { ThemeToggle } from "../themeToggle/themeToggle";
-import ProfilePage from "../../app/modules/page/profile";
+// import ProfilePage from "../../app/modules/page/profile";
 import Logo from "../../../assets/img/logo-certa.png";
 interface LinkItemProps {
   name: string;
@@ -58,7 +50,7 @@ export default function SidebarWithHeader({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}

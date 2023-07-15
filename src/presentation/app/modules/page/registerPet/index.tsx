@@ -1,11 +1,12 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
+import ProductAddToCart from "../../cardsPet";
+// import ProductAddToCart from "../../cardsPet";
 
 const RegisterPet = () => {
   return (
-    <Box position={"absolute"} paddingStart={"60"}>
-      <Text color={"red.300"}>
-        oiasasasasasasasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      </Text>
+    <Box paddingStart={"60"}>
+      <ProductAddToCart />
+      {/* oi */}
     </Box>
   );
 };
