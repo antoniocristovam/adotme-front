@@ -15,15 +15,15 @@ import {
 import { Link as RouteLink } from "react-router-dom";
 import Logo from "../../../../assets/img/logo-certa.png";
 
-import http from "../../../../http";
-
 // Validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useContext } from "react";
-import { AuthContext } from "../../../../Context/AuthContext";
+import { AuthContext } from "../../../../Context/auth/AuthContext.tsx";
 
 export default function LoginPage() {
+  const { login } = useContext(AuthContext);
+
   const validation = useFormik({
     enableReinitialize: true,
 
@@ -38,23 +38,19 @@ export default function LoginPage() {
 
     onSubmit: async (values) => {
       const valuesToSubmit = {
-        password: values.password || null,
-        usernameOrEmail: values.usernameOrEmail || null,
+        password: values.password,
+        usernameOrEmail: values.usernameOrEmail,
       };
 
-      const result = await http.post("/api/v1/auth/login", valuesToSubmit);
+      // const result = await http.post("/api/v1/auth/login", valuesToSubmit);
 
       if (values) {
-        console.log("Enviou");
-        toggleAuth();
+        await login(valuesToSubmit.usernameOrEmail, values.password);
       } else {
         console.log("Não enviou");
       }
     },
   });
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { auth, toggleAuth } = useContext(AuthContext);
 
   return (
     <>

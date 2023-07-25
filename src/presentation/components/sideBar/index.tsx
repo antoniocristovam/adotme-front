@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { useContext } from "react";
 import {
   Avatar,
   Box,
@@ -20,7 +20,6 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  useColorMode,
 } from "@chakra-ui/react";
 import { FiHome, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
@@ -30,6 +29,7 @@ import { MdPets, MdPerson } from "react-icons/md";
 import { ThemeToggle } from "../themeToggle/themeToggle";
 // import ProfilePage from "../../app/modules/page/profile";
 import Logo from "../../../assets/img/logo-certa.png";
+import { AuthContext } from "../../../Context/auth/AuthContext.tsx";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -43,12 +43,9 @@ const LinkItems: Array<LinkItemProps> = [
   // { name: "Seus Progressos", icon: FiSettings },
 ];
 
-export default function SidebarWithHeader({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function SidebarWithHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
@@ -164,6 +161,8 @@ interface MobileProps extends FlexProps {
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   // const { colorMode, toggleColorMode } = useColorMode();
 
+  const { user } = useContext(AuthContext);
+
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -211,7 +210,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Antonio Cristovam</Text>
+                  <Text fontSize="sm">
+                    Bem vindo, {user?.firstName} {user?.lastName}
+                  </Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
