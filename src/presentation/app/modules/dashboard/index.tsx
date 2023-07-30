@@ -1,4 +1,4 @@
-import SidebarWithHeader from "../../../../components/sideBar";
+import SidebarWithHeader from "../../../components/sideBar";
 
 export function Dashboard() {
   return (

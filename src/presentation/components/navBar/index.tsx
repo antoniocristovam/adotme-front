@@ -1,27 +1,29 @@
 import {
   Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
   Icon,
+  Flex,
   Link,
+  Text,
+  Stack,
+  Image,
+  Button,
   Popover,
+  Collapse,
+  IconButton,
+  useDisclosure,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import {
-  HamburgerIcon,
   CloseIcon,
+  HamburgerIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import {Link as RouteLink} from 'react-router-dom'
+
+import { Link as RouteLink } from "react-router-dom";
+import Logo from "../../../assets/img/logo-certa.png";
 
 export default function NavBarHomePage() {
   const { isOpen, onToggle } = useDisclosure();
@@ -29,7 +31,7 @@ export default function NavBarHomePage() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
+        bg={useColorModeValue("white", "gray.900")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -54,13 +56,7 @@ export default function NavBarHomePage() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Antonio Cristovam
-          </Text>
+          <Image w={10} src={Logo} alt="Dan Abramov" />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -73,15 +69,12 @@ export default function NavBarHomePage() {
           direction={"row"}
           spacing={6}
         >
-          <RouteLink to={'/pagina-de-login'}>
-            <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-            >
-              Já sou Aluno
+          <RouteLink to={"/login"}>
+            <Button as={"a"} fontSize={"sm"} fontWeight={400}>
+              Entrar
             </Button>
           </RouteLink>
+          <RouteLink to={"register"}>
             <Button
               as={"a"}
               display={{ base: "none", md: "inline-flex" }}
@@ -94,8 +87,9 @@ export default function NavBarHomePage() {
                 bg: "pink.300",
               }}
             >
-              Sign Up
+              Cadastre-se
             </Button>
+          </RouteLink>
         </Stack>
       </Flex>
 

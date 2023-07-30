@@ -1,6 +1,5 @@
-import React, { ReactNode } from "react";
+import { useContext } from "react";
 import {
-  IconButton,
   Avatar,
   Box,
   CloseButton,
@@ -21,22 +20,16 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  Button,
-  useColorMode,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiHome, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { Link as RouteLink } from "react-router-dom";
+import { MdPets, MdPerson } from "react-icons/md";
+import { ThemeToggle } from "../themeToggle/themeToggle";
+// import ProfilePage from "../../app/modules/page/profile";
+import Logo from "../../../assets/img/logo-certa.png";
+import { AuthContext } from "../../../Context/auth/AuthContext.tsx";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -44,20 +37,17 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: "Home", icon: FiHome, link: "/home" },
-  { name: "Redações", icon: FiTrendingUp, link: '/redacao' },
-  { name: "Aulas", icon: FiCompass, link: '/aulas' },
-  { name: "Enviar Redação", icon: FiStar, link: 'enviarredacao' },
-  { name: "Seus Progressos", icon: FiSettings },
+  { name: "Perfil", icon: MdPerson, link: "/perfil" },
+  { name: "Pegistrar Pet", icon: MdPets, link: "/registrar-pet" },
+  // { name: "Enviar Redação", icon: FiStar, link: "enviarredacao" },
+  // { name: "Seus Progressos", icon: FiSettings },
 ];
 
-export default function SidebarWithHeader({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function SidebarWithHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -78,7 +68,8 @@ export default function SidebarWithHeader({
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+        {/* <ProfilePage /> */}
+        {/* aqui que renderiza */}
       </Box>
     </Box>
   );
@@ -101,8 +92,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+        <Text
+          display={"flex"}
+          fontSize="2xl"
+          fontFamily="monospace"
+          fontWeight="bold"
+        >
+          {/* Logo */}
+          <img width={"55px"} src={Logo} alt="" />
+          Adotme
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -161,7 +159,9 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
+
+  const { user } = useContext(AuthContext);
 
   return (
     <Flex
@@ -170,22 +170,13 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       height="20"
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
+      gap={"4"}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
-      <IconButton
-        display={{ base: "flex", md: "none" }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<FiMenu />}
-      />
-
+      <ThemeToggle />
       <Text
         display={{ base: "flex", md: "none" }}
         fontSize="2xl"
@@ -194,14 +185,13 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       >
         Logo
       </Text>
-
       <HStack spacing={{ base: "0", md: "6" }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+        {/*<IconButton*/}
+        {/*  size="lg"*/}
+        {/*  variant="ghost"*/}
+        {/*  aria-label="open menu"*/}
+        {/*  icon={<FiBell />}*/}
+        {/*/>*/}
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
@@ -220,7 +210,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Antonio Cristovam</Text>
+                  <Text fontSize="sm">
+                    Bem vindo, {user?.firstName} {user?.lastName}
+                  </Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
@@ -238,7 +230,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <RouteLink to={'/'}>
+              <RouteLink to={"/"}>
                 <MenuItem>Sair</MenuItem>
               </RouteLink>
             </MenuList>
