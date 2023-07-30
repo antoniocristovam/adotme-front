@@ -38,7 +38,7 @@ export default function CaptionCarousel() {
     {
       title: "Venha fazer parte",
       text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image: { banner },
+      image: "https://www.adotepetz.com.br/images/banner-4.webp",
     },
     {
       title: "Design Projects 2",
