@@ -31,7 +31,7 @@ export default function NavBarHomePage() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.900")}
+        bg={useColorModeValue("#9BB1DE", "gray.900")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -81,10 +81,10 @@ export default function NavBarHomePage() {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              bg={"#434e61"}
               href={"#"}
               _hover={{
-                bg: "pink.300",
+                bg: "#303947",
               }}
             >
               Cadastre-se
@@ -293,6 +293,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Suporte",
-    href: "#",
+    href: "/suporte",
   },
 ];

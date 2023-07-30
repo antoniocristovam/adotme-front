@@ -11,6 +11,7 @@ import {
   createIcon,
 } from "@chakra-ui/react";
 import { Rating } from "../../app/modules/cardsPet";
+import CaptionCarousel from "../carousel";
 
 export default function CallToActionWithAnnotation() {
   return (
@@ -21,6 +22,7 @@ export default function CallToActionWithAnnotation() {
           rel="stylesheet"
         />
       </Head> */}
+      <CaptionCarousel />
 
       <Container maxW={"3xl"}>
         <Stack
