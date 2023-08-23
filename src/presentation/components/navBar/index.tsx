@@ -23,7 +23,7 @@ import {
 } from "@chakra-ui/icons";
 
 import { Link as RouteLink } from "react-router-dom";
-import Logo from "../../../assets/img/logo-certa.png";
+import Logo from "../../../assets/img/logo-kf.png";
 
 export default function NavBarHomePage() {
   const { isOpen, onToggle } = useDisclosure();
@@ -31,7 +31,7 @@ export default function NavBarHomePage() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("#9BB1DE", "gray.900")}
+        bg={useColorModeValue("#ffffff", "gray.900")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}

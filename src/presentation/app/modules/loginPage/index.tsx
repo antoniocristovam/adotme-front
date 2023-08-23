@@ -13,7 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom";
-import Logo from "../../../../assets/img/logo-certa.png";
+import Logo from "../../../../assets/img/logo-kf.png";
 
 // Validation
 import * as Yup from "yup";
@@ -69,7 +69,7 @@ export default function LoginPage() {
           <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
             <Stack align={"center"}>
               <Image w={"28"} src={Logo}></Image>
-              <Heading fontSize={"4xl"}>Seja bem Vindo</Heading>
+              {/* <Heading fontSize={"4xl"}>Seja bem Vindo</Heading> */}
             </Stack>
             <Box
               rounded={"lg"}
