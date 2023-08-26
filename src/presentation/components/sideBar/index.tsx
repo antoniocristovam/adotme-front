@@ -35,6 +35,7 @@ import { AuthContext } from "../../../Context/auth/AuthContext.tsx";
 
 // Img
 import Logo from "../../../assets/img/logo-kf.png";
+import BasicStatistics from "../statusDashboard/index.tsx";
 
 // Interface
 interface LinkItemProps {
@@ -58,6 +59,7 @@ export default function SidebarWithHeader() {
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
