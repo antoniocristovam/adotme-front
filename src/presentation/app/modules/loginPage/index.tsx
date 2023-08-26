@@ -6,13 +6,14 @@ import {
   Image,
   Stack,
   Button,
-  Heading,
   Checkbox,
   FormLabel,
   FormControl,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom";
+
+// Img
 import Logo from "../../../../assets/img/logo-kf.png";
 
 // Validation
@@ -42,8 +43,6 @@ export default function LoginPage() {
         usernameOrEmail: values.usernameOrEmail,
       };
 
-      // const result = await http.post("/api/v1/auth/login", valuesToSubmit);
-
       if (values) {
         await login(valuesToSubmit.usernameOrEmail, values.password);
       } else {
@@ -69,7 +68,6 @@ export default function LoginPage() {
           <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
             <Stack align={"center"}>
               <Image w={"28"} src={Logo}></Image>
-              {/* <Heading fontSize={"4xl"}>Seja bem Vindo</Heading> */}
             </Stack>
             <Box
               rounded={"lg"}
@@ -104,7 +102,7 @@ export default function LoginPage() {
                     align={"start"}
                     justify={"space-between"}
                   >
-                    <Checkbox>Remember me</Checkbox>
+                    <Checkbox>Lembrar</Checkbox>
                     <Link color={"blue.400"}>Esqueceu sua senha ?</Link>
                   </Stack>
                   <Button

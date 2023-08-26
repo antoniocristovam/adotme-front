@@ -1,46 +1,52 @@
-import { useContext } from "react";
 import {
-  Avatar,
   Box,
-  CloseButton,
   Flex,
-  HStack,
-  VStack,
   Icon,
-  useColorModeValue,
   Link,
-  Drawer,
-  DrawerContent,
   Text,
-  useDisclosure,
+  Menu,
+  Avatar,
+  VStack,
+  Drawer,
+  HStack,
+  MenuList,
+  MenuItem,
   BoxProps,
   FlexProps,
-  Menu,
   MenuButton,
   MenuDivider,
-  MenuItem,
-  MenuList,
+  CloseButton,
+  DrawerContent,
+  useDisclosure,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { FiHome, FiChevronDown } from "react-icons/fi";
-import { IconType } from "react-icons";
+
+// Import
 import { ReactText } from "react";
-import { Link as RouteLink } from "react-router-dom";
+import { useContext } from "react";
+import { IconType } from "react-icons";
 import { MdPets, MdPerson } from "react-icons/md";
+import { Link as RouteLink } from "react-router-dom";
+import { FiHome, FiChevronDown } from "react-icons/fi";
+
+// Component
 import { ThemeToggle } from "../themeToggle/themeToggle";
-// import ProfilePage from "../../app/modules/page/profile";
-import Logo from "../../../assets/img/logo-certa.png";
 import { AuthContext } from "../../../Context/auth/AuthContext.tsx";
+
+// Img
+import Logo from "../../../assets/img/logo-kf.png";
+
+// Interface
 interface LinkItemProps {
   name: string;
   icon: IconType;
   link?: string;
 }
+
 const LinkItems: Array<LinkItemProps> = [
   { name: "Home", icon: FiHome, link: "/home" },
   { name: "Perfil", icon: MdPerson, link: "/perfil" },
-  { name: "Pegistrar Pet", icon: MdPets, link: "/registrar-pet" },
-  // { name: "Enviar Redação", icon: FiStar, link: "enviarredacao" },
-  // { name: "Seus Progressos", icon: FiSettings },
+  { name: "Register", icon: MdPets, link: "/registrar-pet" },
 ];
 
 export default function SidebarWithHeader() {
@@ -65,12 +71,8 @@ export default function SidebarWithHeader() {
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
-      {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* <ProfilePage /> */}
-        {/* aqui que renderiza */}
-      </Box>
+      <Box ml={{ base: 0, md: 60 }} p="4"></Box>
     </Box>
   );
 }
@@ -82,7 +84,6 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      // transition="3s ease"
       bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
@@ -98,9 +99,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           fontFamily="monospace"
           fontWeight="bold"
         >
-          {/* Logo */}
           <img width={"55px"} src={Logo} alt="" />
-          Adotme
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -186,12 +185,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         Logo
       </Text>
       <HStack spacing={{ base: "0", md: "6" }}>
-        {/*<IconButton*/}
-        {/*  size="lg"*/}
-        {/*  variant="ghost"*/}
-        {/*  aria-label="open menu"*/}
-        {/*  icon={<FiBell />}*/}
-        {/*/>*/}
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
