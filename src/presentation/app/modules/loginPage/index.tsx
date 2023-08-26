@@ -73,27 +73,27 @@ export default function LoginPage() {
               rounded={"lg"}
               bg={useColorModeValue("white", "gray.700")}
               boxShadow={"lg"}
-              p={8}
+              p={"14"}
             >
               <Stack spacing={4}>
                 <FormControl id="text">
                   <FormLabel>Login</FormLabel>
                   <Input
-                    name="usernameOrEmail"
-                    onChange={validation.handleChange}
-                    onBlur={validation.handleBlur}
-                    value={validation.values.usernameOrEmail}
                     type="text"
+                    name="usernameOrEmail"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.usernameOrEmail}
                   />
                 </FormControl>
                 <FormControl id="password">
                   <FormLabel>Senha</FormLabel>
                   <Input
-                    name="password"
-                    onChange={validation.handleChange}
-                    onBlur={validation.handleBlur}
-                    value={validation.values.password}
                     type="password"
+                    name="password"
+                    onBlur={validation.handleBlur}
+                    onChange={validation.handleChange}
+                    value={validation.values.password}
                   />
                 </FormControl>
                 <Stack spacing={10}>

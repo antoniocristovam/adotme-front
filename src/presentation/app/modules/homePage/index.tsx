@@ -2,16 +2,16 @@ import NavBarHomePage from "../../../components/navBar";
 import { ReactNode } from "react";
 import {
   Box,
+  Text,
+  List,
   Stack,
   HStack,
-  Heading,
-  Text,
   VStack,
-  useColorModeValue,
-  List,
+  Button,
+  Heading,
   ListItem,
   ListIcon,
-  Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 
