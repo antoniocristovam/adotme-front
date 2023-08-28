@@ -1,4 +1,4 @@
-import NavBarHomePage from "../../../../components/navBar";
+import NavBarHomePage from "../../../components/navBar";
 import { ReactNode } from "react";
 import {
   Box,

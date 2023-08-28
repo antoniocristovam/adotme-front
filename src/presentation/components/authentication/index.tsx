@@ -19,8 +19,8 @@ import {
 } from "@chakra-ui/react";
 
 // Component
-import Background from "../../assets/img/pet-background.jpg";
-import Background2 from "../../assets/img/mobile-bg.png";
+import Background from "../../../assets/img/pet-background.jpg";
+import Background2 from "../../../assets/img/mobile-bg.png";
 // import NavBarHomePage from "../navBar";
 
 // Validation

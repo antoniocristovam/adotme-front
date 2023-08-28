@@ -23,9 +23,7 @@ import {
 } from "@chakra-ui/icons";
 
 import { Link as RouteLink } from "react-router-dom";
-import Logo from "../../assets/img/logo-certa.png";
-import { useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext";
+import Logo from "../../../assets/img/logo-certa.png";
 
 export default function NavBarHomePage() {
   const { isOpen, onToggle } = useDisclosure();
@@ -58,17 +56,7 @@ export default function NavBarHomePage() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          {/* <Image></Image> */}
-          {/* <Box boxSize="10"> */}
           <Image w={10} src={Logo} alt="Dan Abramov" />
-          {/* </Box> */}
-          {/* <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-           
-          </Text> */}
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
